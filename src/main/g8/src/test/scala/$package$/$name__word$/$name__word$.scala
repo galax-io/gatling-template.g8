@@ -15,8 +15,8 @@ import org.galaxio.gatling.kafka.Predef.kafka
 import org.galaxio.gatling.kafka.protocol.KafkaProtocolBuilder
 $endif$
 $if(jdbcPlugin.truthy) $
-import org.galaxio.performance.jdbc.Predef._
-import org.galaxio.performance.jdbc.protocol.JdbcProtocolBuilder
+import org.galaxio.gatling.jdbc.Predef._
+import org.galaxio.gatling.jdbc.protocol.JdbcProtocolBuilder
 
 import scala.concurrent.duration.DurationInt
 $endif$

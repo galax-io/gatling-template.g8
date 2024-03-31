@@ -2,6 +2,7 @@ package $package$.$name;format="word"$.scenarios
 
 import io.gatling.core.Predef._
 import io.gatling.core.structure.ScenarioBuilder
+import org.galaxio.gatling.jdbc.Predef._
 import $package$.$name;format="word"$.cases._
 
 object JdbcScenario {

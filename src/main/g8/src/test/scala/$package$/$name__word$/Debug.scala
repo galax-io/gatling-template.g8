@@ -12,7 +12,7 @@ $if(kafkaPlugin.truthy)$
 import org.galaxio.gatling.kafka.Predef._
 $endif$
 $if(jdbcPlugin.truthy)$
-import org.galaxio.performance.jdbc.Predef._
+import org.galaxio.gatling.jdbc.Predef._
 $endif$
 import $package$.$name;format="word"$.scenarios._
 

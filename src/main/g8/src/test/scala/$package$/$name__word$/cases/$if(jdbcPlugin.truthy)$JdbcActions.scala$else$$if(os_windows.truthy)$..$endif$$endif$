@@ -1,8 +1,8 @@
 package $package$.$name;format="word"$.cases
 
 import io.gatling.core.Predef._
-import org.galaxio.performance.jdbc.Predef._
-import org.galaxio.performance.jdbc.actions
+import org.galaxio.gatling.jdbc.Predef._
+import org.galaxio.gatling.jdbc.actions
 
 object JdbcActions {
 

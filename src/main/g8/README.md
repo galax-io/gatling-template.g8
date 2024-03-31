@@ -32,7 +32,7 @@ INFLUX_PREFIX - see /etc/influxdb/influxdb.conf: database
 ```
 
 Also, you can pass all params from Gatling-picatinny or use custom params
-read: https://github.com/cosmospf/gatling-picatinny/blob/master/README.md
+read: https://github.com/galaxio.org/gatling-picatinny/blob/master/README.md
 
 ## Debug
 

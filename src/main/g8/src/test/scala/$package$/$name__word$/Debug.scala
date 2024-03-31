@@ -5,14 +5,14 @@ import io.gatling.http.Predef._
 $endif$
 import io.gatling.core.Predef._
 $if(amqpPlugin.truthy)$
-import io.cosmospf.gatling.amqp.Predef._
+import org.galaxio.gatling.amqp.Predef._
 $endif$
-import io.cosmospf.gatling.config.SimulationConfig._
+import org.galaxio.gatling.config.SimulationConfig._
 $if(kafkaPlugin.truthy)$
-import io.cosmospf.gatling.kafka.Predef._
+import org.galaxio.gatling.kafka.Predef._
 $endif$
 $if(jdbcPlugin.truthy)$
-import io.cosmospf.load.jdbc.Predef._
+import org.galaxio.performance.jdbc.Predef._
 $endif$
 import $package$.$name;format="word"$.scenarios._
 

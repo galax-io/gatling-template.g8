@@ -6,17 +6,17 @@ $if(kafkaPlugin.truthy) $
 import org.apache.kafka.clients.producer.ProducerConfig
 $endif$
 $if(amqpPlugin.truthy) $
-import io.cosmospf.gatling.amqp.Predef._
-import io.cosmospf.gatling.amqp.protocol.AmqpProtocolBuilder
+import org.galaxio.gatling.amqp.Predef._
+import org.galaxio.gatling.amqp.protocol.AmqpProtocolBuilder
 $endif$
-import io.cosmospf.gatling.config.SimulationConfig._
+import org.galaxio.gatling.config.SimulationConfig._
 $if(kafkaPlugin.truthy) $
-import io.cosmospf.gatling.kafka.Predef.kafka
-import io.cosmospf.gatling.kafka.protocol.KafkaProtocolBuilder
+import org.galaxio.gatling.kafka.Predef.kafka
+import org.galaxio.gatling.kafka.protocol.KafkaProtocolBuilder
 $endif$
 $if(jdbcPlugin.truthy) $
-import io.cosmospf.load.jdbc.Predef._
-import io.cosmospf.load.jdbc.protocol.JdbcProtocolBuilder
+import org.galaxio.performance.jdbc.Predef._
+import org.galaxio.performance.jdbc.protocol.JdbcProtocolBuilder
 
 import scala.concurrent.duration.DurationInt
 $endif$

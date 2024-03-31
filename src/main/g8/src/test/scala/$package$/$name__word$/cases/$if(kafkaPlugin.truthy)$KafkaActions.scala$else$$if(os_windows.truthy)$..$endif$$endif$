@@ -1,8 +1,8 @@
 package $package$.$name;format="word"$.cases
 
 import io.gatling.core.Predef._
-import io.cosmospf.gatling.kafka.Predef._
-import io.cosmospf.gatling.kafka.request.builder._
+import org.galaxio.gatling.kafka.Predef._
+import org.galaxio.gatling.kafka.request.builder._
 
 object KafkaActions {
 

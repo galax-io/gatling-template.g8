@@ -1,4 +1,4 @@
-[![Scala Steward badge](https://img.shields.io/badge/Scala_Steward-helping-blue.svg?style=flat&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAQCAMAAAARSr4IAAAAVFBMVEUAAACHjojlOy5NWlrKzcYRKjGFjIbp293YycuLa3pYY2LSqql4f3pCUFTgSjNodYRmcXUsPD/NTTbjRS+2jomhgnzNc223cGvZS0HaSD0XLjbaSjElhIr+AAAAAXRSTlMAQObYZgAAAHlJREFUCNdNyosOwyAIhWHAQS1Vt7a77/3fcxxdmv0xwmckutAR1nkm4ggbyEcg/wWmlGLDAA3oL50xi6fk5ffZ3E2E3QfZDCcCN2YtbEWZt+Drc6u6rlqv7Uk0LdKqqr5rk2UCRXOk0vmQKGfc94nOJyQjouF9H/wCc9gECEYfONoAAAAASUVORK5CYII=)](https://scala-steward.org) [![Continuous Integration](https://github.com/cosmospf/gatling-template.g8/actions/workflows/ci.yml/badge.svg)](https://github.com/cosmospf/gatling-template.g8/actions/workflows/ci.yml)
+[![Scala Steward badge](https://img.shields.io/badge/Scala_Steward-helping-blue.svg?style=flat&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAQCAMAAAARSr4IAAAAVFBMVEUAAACHjojlOy5NWlrKzcYRKjGFjIbp293YycuLa3pYY2LSqql4f3pCUFTgSjNodYRmcXUsPD/NTTbjRS+2jomhgnzNc223cGvZS0HaSD0XLjbaSjElhIr+AAAAAXRSTlMAQObYZgAAAHlJREFUCNdNyosOwyAIhWHAQS1Vt7a77/3fcxxdmv0xwmckutAR1nkm4ggbyEcg/wWmlGLDAA3oL50xi6fk5ffZ3E2E3QfZDCcCN2YtbEWZt+Drc6u6rlqv7Uk0LdKqqr5rk2UCRXOk0vmQKGfc94nOJyQjouF9H/wCc9gECEYfONoAAAAASUVORK5CYII=)](https://scala-steward.org) [![Continuous Integration](https://github.com/galaxio.org/gatling-template.g8/actions/workflows/ci.yml/badge.svg)](https://github.com/galaxio.org/gatling-template.g8/actions/workflows/ci.yml)
 
 A [Giter8][g8] template for the Gatling performance test project.
 
@@ -9,8 +9,8 @@ create projects for HTTP (default), JDBC, AMQP, and Kafka protocols. The templat
 
 ## How to use
 
-```scala
-sbt new cosmospf/gatling-template.g8
+```shell
+sbt new galax-io/gatling-template.g8
 ```
 
 Confirm your operating system in the **os_windows** field. Set this field to **"y"** if you use Windows OS. Default
@@ -19,7 +19,7 @@ value for Unix OS is **"n"**.
 Enter the name of your service in the **name** field.
 
 Enter your domain in the **package** field to form the project structure, e.g. when the value of the packaging field is
-set to "io.cosmospf.load" the project structure will be `io.cosmospf/load/`
+set to "org.galaxio.performance" the project structure will be `org.galaxio/performance/`
 
 **Parameters "name" and "package" are required**. Leave the default or specify yours.
 
@@ -29,23 +29,23 @@ How to install sbt <https://www.scala-sbt.org/1.x/docs/Setup.html>.
 
 Use the following parameters to create a template
 
-| Parameter                 | Description                                     | Default value     |
-|---------------------------|-------------------------------------------------|-------------------|
-| os_windows                | If you are using Windows OS, set this parameter | `n`               |
-| package                   | Package name                                    | `io.cosmospf.load` |
-| name                      | Service name                                    | `myservice`       |
-| http                      | Protocol used in scripts                        | `y`               |
-| jdbcPlugin                | Protocol used in scripts                        | `n`               |
-| amqpPlugin                | Protocol used in scripts                        | `n`               |
-| kafkaPlugin               | Protocol used in scripts                        | `n`               |
-| scala_version             | Version dependencies in project                 | `2.13.8`          |
-| sbt_version               | Version dependencies in project                 | `1.7.1`           |
-| gatling_version           | Version dependencies in project                 | `3.8.4`           |
-| sbt_gatling_version       | Version dependencies in project                 | `4.2.3`           |
-| sbt_scalafmt_version      | Version dependencies in project                 | `2.4.6`           |
-| gatling_picatinny_version | Version dependencies in project                 | `0.11.2`          |
+| Parameter                 | Description                                     | Default value             |
+|---------------------------|-------------------------------------------------|---------------------------|
+| os_windows                | If you are using Windows OS, set this parameter | `n`                       |
+| package                   | Package name                                    | `org.galaxio.performance` |
+| name                      | Service name                                    | `myservice`               |
+| http                      | Protocol used in scripts                        | `y`                       |
+| jdbcPlugin                | Protocol used in scripts                        | `n`                       |
+| amqpPlugin                | Protocol used in scripts                        | `n`                       |
+| kafkaPlugin               | Protocol used in scripts                        | `n`                       |
+| scala_version             | Version dependencies in project                 | `2.13.8`                  |
+| sbt_version               | Version dependencies in project                 | `1.7.1`                   |
+| gatling_version           | Version dependencies in project                 | `3.8.4`                   |
+| sbt_gatling_version       | Version dependencies in project                 | `4.2.3`                   |
+| sbt_scalafmt_version      | Version dependencies in project                 | `2.4.6`                   |
+| gatling_picatinny_version | Version dependencies in project                 | `0.11.2`                  |
 
-By default, a project will be created with the `io.cosmospf.load` package and the name `myservice`, for the HTTP protocol,
+By default, a project will be created with the `org.galaxio.performance` package and the name `myservice`, for the HTTP protocol,
 with the specified dependency versions
 
 ## Overriding variable environment

@@ -2,6 +2,7 @@ package $package$
 
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
+import $package$.$name;format="word"$.Utility.debugMemoryAndOpts
 $if(kafkaPlugin.truthy) $
 import org.apache.kafka.clients.producer.ProducerConfig
 $endif$
@@ -21,8 +22,10 @@ import org.galaxio.gatling.jdbc.protocol.JdbcProtocolBuilder
 import scala.concurrent.duration.DurationInt
 $endif$
 
-package object $name;
-format = "word" $ {
+package object $name;format="word"$ {
+
+  if (sys.env.get("DEBUG").exists(_.equalsIgnoreCase("true")))
+    debugMemoryAndOpts()
 
   $if(http.truthy) $
   // common http protocol params (eg headers, checks)

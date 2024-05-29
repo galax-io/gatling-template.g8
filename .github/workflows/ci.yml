@@ -20,7 +20,7 @@ jobs:
       - name: Setup Scala
         uses: coursier/setup-action@v1
         with:
-          jvm: openjdk:1.17
+          jvm: temurin:1.17
 
       - name: Test Release g8
         run: sbt g8Test

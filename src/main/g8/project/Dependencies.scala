@@ -17,7 +17,7 @@ object Dependencies {
   lazy val avro4s: Seq[ModuleID]           = Seq("com.sksamuel.avro4s" %% "avro4s-core" % "4.1.2")
   $endif$
   $if(jdbcPlugin.truthy) $
-  lazy val jdbcPlugin: Seq[ModuleID]       = Seq("org.galaxio" %% "gatling-jdbc-plugin" % "$gatling_kafka_version$")
+  lazy val jdbcPlugin: Seq[ModuleID]       = Seq("org.galaxio" %% "gatling-jdbc-plugin" % "$gatling_jdbc_version$")
   lazy val postgresJdbc: Seq[ModuleID]     = Seq("org.postgresql" % "postgresql" % "42.5.6")
   $endif$
 }

@@ -18,14 +18,15 @@ lazy val root = (project in file("."))
     $if(amqpPlugin.truthy) $
       libraryDependencies ++= amqpPlugin,
     $endif$
-      $if (kafkaPlugin.truthy) $
+    $if (kafkaPlugin.truthy) $
       libraryDependencies ++= kafkaPlugin,
-    libraryDependencies ++= kafkaSerializer,
-    libraryDependencies ++= avro4s,
+      resolvers += "confluent" at "https://packages.confluent.io/maven/",
+      libraryDependencies ++= kafkaSerializer,
+      libraryDependencies ++= avro4s,
     $endif$
-      $if (jdbcPlugin.truthy) $
+    $if (jdbcPlugin.truthy) $
       libraryDependencies ++= jdbcPlugin,
-    libraryDependencies ++= postgresJdbc,
+      libraryDependencies ++= postgresJdbc,
     $endif$
       scalacOptions ++= Seq (
         "-encoding",

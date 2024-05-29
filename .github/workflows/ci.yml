@@ -39,12 +39,9 @@ jobs:
       - name: Setup Scala
         uses: coursier/setup-action@v1
         with:
-          java-version: openjdk@1.17
-
+          jvm: temurin:1.17
       - run: ls -a
-      - run: cd ..
-      - run: ls -a
-      - run: sbt new file://gatling-template.g8 --name=test --jdbcPlugin=yes --amqpPlugin=yes --kafkaPlugin=yes
+      - run: sbt new file://../gatling-template.g8 --name=test --jdbcPlugin=yes --amqpPlugin=yes --kafkaPlugin=yes
       - run: cd test/
       - run: ls -a
       - run: sbt clean scalafmtSbtCheck scalafmtCheckAll

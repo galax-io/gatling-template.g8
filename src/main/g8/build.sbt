@@ -13,7 +13,6 @@ lazy val root = (project in file("."))
     ),
     name := "$name$",
     libraryDependencies ++= gatling,
-    libraryDependencies ++= gelf,
     libraryDependencies ++= gatlingPicatinny,
     libraryDependencies ++= janino,
     $if(amqpPlugin.truthy) $

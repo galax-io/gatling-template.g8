@@ -44,7 +44,7 @@ jobs:
       - run: sbt new file://../gatling-template.g8 --name=test --jdbcPlugin=yes --amqpPlugin=yes --kafkaPlugin=yes
       - run: ls -a
         working-directory: ./test
-      - run: sbt clean scalafmtSbtCheck scalafmtCheckAll compile
+      - run: sbt clean scalafmtSbt scalafmtAll scalafmtSbtCheck scalafmtCheckAll compile
         working-directory: ./test
 
 

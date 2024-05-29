@@ -20,7 +20,7 @@ jobs:
       - name: Setup Scala
         uses: coursier/setup-action@v1
         with:
-          java-version: openjdk@1.17
+          jvm: openjdk:1.17
 
       - name: Test Release g8
         run: sbt g8Test
@@ -41,7 +41,9 @@ jobs:
         with:
           java-version: openjdk@1.17
 
+      - run: ls -a
       - run: cd ..
+      - run: ls -a
       - run: sbt new file://gatling-template.g8 --name=test --jdbcPlugin=yes --amqpPlugin=yes --kafkaPlugin=yes
       - run: cd test/
       - run: ls -a

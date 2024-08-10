@@ -1,7 +1,7 @@
 package $package$.$name; format = "word" $
 
 import io.gatling.app.Gatling
-import io.gatling.core.config.GatlingPropertiesBuilder
+import io.gatling.shared.cli.GatlingCliOptions
 
 object GatlingRunner {
 

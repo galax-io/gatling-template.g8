@@ -6,6 +6,6 @@ import org.galaxio.gatling.kafka.request.builder._
 
 object KafkaActions {
 
-  val sendMessage: RequestBuilder[_, Any] = kafka("my message")
-    .send("myMessage", "Hello!")
+  val sendMessage: RequestBuilder[String, String] = kafka("my message")
+    .send[String, String]("myMessage", "Hello!")
 }

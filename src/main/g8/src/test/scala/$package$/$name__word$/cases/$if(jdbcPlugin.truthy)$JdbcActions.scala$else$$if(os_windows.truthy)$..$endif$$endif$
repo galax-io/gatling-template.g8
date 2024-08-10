@@ -2,11 +2,11 @@ package $package$.$name;format="word"$.cases
 
 import io.gatling.core.Predef._
 import org.galaxio.gatling.jdbc.Predef._
-import org.galaxio.gatling.jdbc.actions
+import org.galaxio.gatling.jdbc.actions.actions._
 
 object JdbcActions {
 
-  val createTable: actions.RawSqlActionBuilder = jdbc("create table")
+  val createTable: RawSqlActionBuilder = jdbc("create table")
     .rawSql(
       """create table if not exists mytable(
           |id SERIAL,

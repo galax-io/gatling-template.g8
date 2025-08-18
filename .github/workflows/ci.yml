@@ -5,47 +5,88 @@ on:
     branches: [ '**' ]
   push:
     branches: [ '**' ]
-    tags: [ v* ]
+    tags: [ 'v*' ]
 
 jobs:
   test:
-    name: Test Release
-    runs-on: ubuntu-22.04
+    name: Lint & g8 tests
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Setup Scala
-        uses: coursier/setup-action@v1
+      - name: Setup Java (Temurin 17) with sbt cache
+        uses: actions/setup-java@v4
         with:
-          jvm: temurin:1.17
+          distribution: temurin
+          java-version: '17'
+          cache: sbt
 
-      - name: Test Release g8
+      - uses: sbt/setup-sbt@v1
+
+      - name: Cache Coursier
+        uses: coursier/cache-action@v6
+
+      - name: Cache Ivy/SBT
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.ivy2/cache
+            ~/.sbt
+            ~/.cache/coursier
+          key: sbt-${{ runner.os }}-${{ hashFiles('**/*.sbt') }}-${{ hashFiles('project/**') }}
+          restore-keys: sbt-${{ runner.os }}-
+
+      - name: Check Formatting
+        run: sbt scalafmtCheckAll scalafmtSbtCheck
+
+      - name: g8Test
         run: sbt g8Test
 
-      - name: Test Release
-        run: sbt clean scalafmtCheckAll scalafmtSbtCheck
   validate:
-    name: Validate
-    runs-on: ubuntu-22.04
+    name: Template generation matrix
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: http-default
+            args: ""
+          - name: jdbc
+            args: "--jdbcPlugin=yes"
+          - name: amqp
+            args: "--amqpPlugin=yes"
+          - name: kafka
+            args: "--kafkaPlugin=yes"
+          - name: all
+            args: "--jdbcPlugin=yes --amqpPlugin=yes --kafkaPlugin=yes"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Setup Scala
+      - name: Setup Scala (Temurin 17)
         uses: coursier/setup-action@v1
         with:
           jvm: temurin:1.17
-      - run: ls -a
-      - run: sbt new file://../gatling-template.g8 --name=test --jdbcPlugin=yes --amqpPlugin=yes --kafkaPlugin=yes
-      - run: ls -a
-        working-directory: ./test
-      - run: sbt clean scalafmtSbt scalafmtAll scalafmtSbtCheck scalafmtCheckAll compile
-        working-directory: ./test
+
+      - name: Setup sbt
+        uses: sbt/setup-sbt@v1
+
+      - name: Generate template (${{ matrix.name }})
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "Generating variant: ${{ matrix.name }}"
+          sbt new "file://$GITHUB_WORKSPACE" --name="test-${{ matrix.name }}" --description="Creates a Gatling project with sample performance test." ${{ matrix.args }}
+          ls -la
+
+      - name: Build generated project (${{ matrix.name }})
+        working-directory: ./test-${{ matrix.name }}
+        run: sbt clean scalafmtSbt scalafmtAll scalafmtSbtCheck scalafmtCheckAll compile
 
 
 

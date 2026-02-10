@@ -5,7 +5,6 @@ $if(amqpPlugin.truthy)$
 import org.galaxio.gatling.amqp.Predef._
 $endif$
 import org.galaxio.gatling.config.SimulationConfig._
-import org.galaxio.gatling.influxdb.Annotations
 $if(kafkaPlugin.truthy)$
 import org.galaxio.gatling.kafka.Predef._
 $endif$
@@ -14,7 +13,7 @@ import org.galaxio.gatling.jdbc.Predef._
 $endif$
 import $package$.$name;format="word"$.scenarios._
 
-class MaxPerformance extends Simulation with Annotations {
+class MaxPerformance extends Simulation {
 
   setUp(
     $if(http.truthy)$

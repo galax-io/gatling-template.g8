@@ -1,5 +1,15 @@
 # Gatling Template Project
 
+> Deprecated: use the Galaxio CLI template instead.
+>
+> ```shell
+> go install github.com/galax-io/galaxio-cli/cmd/galaxio@latest
+> galaxio template init gatling/scala-sbt
+> ```
+>
+> New development lives in `galax-io/templates-gatling`; this Giter8 template is
+> kept for existing users only.
+
 Template project for Gatling performance tests
 
 ## Project structure
